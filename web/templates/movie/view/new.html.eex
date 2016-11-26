@@ -1,0 +1,6 @@
+<h2>New view</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: view_path(@conn, :create) %>
+
+<%= link "Back", to: view_path(@conn, :index) %>

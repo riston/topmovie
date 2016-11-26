@@ -1,0 +1,51 @@
+
+<%= for movie <- @movies do %>
+    <div>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="<%= movie.imdb_link %>">
+                    <h3>
+                        <%= movie.title %> <strong>(<%= movie.year %>)</strong>
+                    </h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-right">
+                    <span class="label <%= get_view_label(movie.view_count) %>">
+                        <%= movie.view_count %> views
+                    </span>
+                </h3>
+            </div>
+        </div>
+        <p>
+            <em><%= movie.inserted_at %></em>
+            <em><%= movie.updated_at %></em>
+            Subtitle author - <em><%= movie.author %></em>
+        </p>
+        <p>
+            <table class="table">
+                <tr>
+                    <td class="tp-views-label">Date</td>
+                    <%= for {_id, _count, date} <- movie.views do %>
+                        <% {_year, month, day} = date %>
+                        <td><%= day %>/<%= month %></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td class="tp-views-label">Views</td>
+                    <% first = first_view_count(movie.views) %>
+                    <%= for {_id, count, _date} <- movie.views do %>
+                        <td>
+                        <%= if count == first do %>
+                            <strong><%= count %></strong>
+                        <% else %>
+                            +<%= count - first %>
+                        <% end %>
+                        </td>
+                    <% end %>
+                </tr>
+
+            </table>
+        </p>
+    </div>
+<% end %>
