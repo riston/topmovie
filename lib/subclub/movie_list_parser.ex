@@ -167,8 +167,8 @@ defmodule Subclub.MovieListParser do
             imdb_link: imdb_link(row),
             author: author(row),
             category: category(row),
-            modified_at: modified_at(row),
-            created_at: created_at(row)
+            updated_at: modified_at(row),
+            inserted_at: created_at(row)
         }
     end
 end

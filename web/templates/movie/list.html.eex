@@ -12,16 +12,19 @@
             <div class="col-md-4">
                 <h3 class="text-right">
                     <span class="label <%= get_view_label(movie.view_count) %>">
+                        <i class="fa fa-eye"></i>
                         <%= movie.view_count %> views
                     </span>
                 </h3>
             </div>
         </div>
         <p>
-            <em><%= movie.inserted_at %></em>
-            <em><%= movie.updated_at %></em>
-            Subtitle author - <em><%= movie.author %></em>
+            <a href="http://www.subclub.eu/down.php?id=<%= movie.id %>">Subtitle</a>
+            author: <%= movie.author %> -
+            updated <em><%= format_date(movie.updated_at) %></em>
+            and created <em><%= format_date(movie.inserted_at) %></em>
         </p>
+        <%= if movie.view_count >= 1000 do %>
         <p>
             <table class="table">
                 <tr>
@@ -44,8 +47,8 @@
                         </td>
                     <% end %>
                 </tr>
-
             </table>
         </p>
+        <% end %>
     </div>
 <% end %>

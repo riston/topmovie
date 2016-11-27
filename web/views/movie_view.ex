@@ -10,6 +10,7 @@ defmodule Topmovie.MovieView do
       end
   end
 
+  def first_view_count([]), do: 0
   def first_view_count(views) do
       first = hd(views)
       { _id, view, _date } = first
@@ -22,5 +23,11 @@ defmodule Topmovie.MovieView do
         view end)
       |> Enum.sort
       |> Enum.join(",")
+  end
+
+  def format_date(datetime) do
+      datetime
+      |> Ecto.DateTime.to_erl
+      |> Timex.format!("{relative}", :relative)
   end
 end

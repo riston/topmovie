@@ -47,7 +47,7 @@ defmodule Topmovie.Movie do
 
   def get_movies do
       movieQuery = from(m in Topmovie.Movie,
-          order_by: [desc: m.updated_at],
+          order_by: [desc: m.view_count, desc: m.updated_at],
           limit: 25)
 
       viewQuery = from(v in View,

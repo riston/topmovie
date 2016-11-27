@@ -1,5 +1,13 @@
 /* This file is for your main application css. */
 
+.header h1 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 900;
+    color: #1168bf;
+    letter-spacing: 5px;
+}
+
 .tp-views-label {
     font-style: italic;
     font-weight: bolder;
