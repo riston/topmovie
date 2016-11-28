@@ -26,6 +26,6 @@ defmodule Subclub.Worker do
     end
 
     defp schedule_work() do
-        Process.send_after(self(), :work, 60 * 10 * 1000)
+        Process.send_after(self(), :work, 6 * 60 * 60 * 1000)
     end
 end
