@@ -9,9 +9,7 @@
 
     <title>Subclub top movie list</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-
-    <!-- Remove this if possible -->
-    <script src="https://use.fontawesome.com/fc93819336.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>

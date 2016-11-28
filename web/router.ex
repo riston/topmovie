@@ -18,8 +18,8 @@ defmodule Topmovie.Router do
 
     get "/", MovieController, :list
 
-    resources "/views", Movie.ViewController
-    resources "/movies", MovieController
+    # resources "/views", Movie.ViewController
+    # resources "/movies", MovieController
   end
 
   # Other scopes may use custom stacks.
