@@ -1,6 +1,8 @@
 defmodule Topmovie.MovieView do
   use Topmovie.Web, :view
 
+  @new_views_count 3
+
   def get_view_label(view_count) do
       cond do
           view_count <= 500 -> "label-default"
@@ -29,5 +31,9 @@ defmodule Topmovie.MovieView do
       datetime
       |> Ecto.DateTime.to_erl
       |> Timex.format!("{relative}", :relative)
+  end
+
+  def is_new(views) do
+       Enum.count(views) <= @new_views_count
   end
 end

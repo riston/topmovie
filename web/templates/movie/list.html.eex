@@ -11,6 +11,9 @@
             </div>
             <div class="col-md-4">
                 <h3 class="text-right">
+                    <%= if is_new(movie.views) do %>
+                        <span class="label label-success">NEW</span>
+                    <% end %>
                     <span class="label <%= get_view_label(movie.view_count) %>">
                         <i class="fa fa-eye"></i>
                         <%= movie.view_count %> views
