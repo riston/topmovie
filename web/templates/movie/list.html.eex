@@ -4,9 +4,7 @@
         <div class="row">
             <div class="col-md-8">
                 <a href="<%= movie.imdb_link %>">
-                    <h3>
-                        <%= movie.title %> <strong>(<%= movie.year %>)</strong>
-                    </h3>
+                    <h3><%= movie.title %> <strong>(<%= movie.year %>)</strong><h3>
                 </a>
             </div>
             <div class="col-md-4">

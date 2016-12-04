@@ -1,6 +1,7 @@
 # Topmovie
 
-Scrape the subclub.eu movie listing page and aggregate the results.
+Scrape the subclub.eu movie listing page and aggregate the results. Showing the top movies based
+on the downloaded subtitles. [Demo](https://top-subclub.herokuapp.com)
 
 ## Some of the query examples
 
@@ -58,10 +59,3 @@ movie = movieQuery\
 ```
 mix phoenix.gen.html Movie movies title:string year:integer fps:float score:float author:string view_count:integer category:array:string
 ```
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
