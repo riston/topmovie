@@ -23,7 +23,9 @@ defmodule Topmovie.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Topmovie do
-  #   pipe_through :api
-  # end
+  scope "/api", Topmovie do
+    pipe_through :api
+
+    get "/list", MovieController, :api_list
+  end
 end

@@ -36,4 +36,36 @@ defmodule Topmovie.MovieView do
   def is_new(views) do
        Enum.count(views) <= @new_views_count
   end
+
+  def render("movies.json", %{movies: movies}) do
+      movies
+      |> Enum.map(fn(movie) -> 
+          %{
+              title: movie.title,
+              year: movie.year,
+              score: movie.score,
+              author: movie.author,
+              imdb: movie.imdb_link,
+              view_count: movie.view_count,
+              category: movie.category || [],
+              is_new: is_new(movie.views),
+              created_at: Ecto.DateTime.to_string(movie.inserted_at),
+              modified_at: Ecto.DateTime.to_string(movie.updated_at),
+              views: render_many(movie.views, __MODULE__, "movies_views.json", as: :view)
+          }
+      end)
+  end
+
+  def render("movies_views.json", %{view: view}) do
+    {id, view_count, date} = view
+    date_str = case Date.from_erl(date) do
+        {:ok, dt} -> Date.to_string(dt)
+        _ -> "1900-01-01"
+    end
+
+    %{
+        count: view_count,
+        created_at: date_str
+    }
+  end
 end

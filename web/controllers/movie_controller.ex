@@ -13,6 +13,12 @@ defmodule Topmovie.MovieController do
       render(conn, "list.html", movies: movies)
   end
 
+  def api_list(conn, _params) do
+    movies = Movie.get_movies
+
+    render(conn, "movies.json", movies: movies)
+  end
+
   # def new(conn, _params) do
   #   changeset = Movie.changeset(%Movie{})
   #   render(conn, "new.html", changeset: changeset)
