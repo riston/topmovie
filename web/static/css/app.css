@@ -13,6 +13,12 @@
     margin-bottom: 2em;
 }
 
+.tp-movie h3 {
+    font-size: 2em;
+    font-variant: small-caps;
+    font-weight: 700;
+}
+
 .tp-views-label {
     font-style: italic;
     font-weight: bolder;
