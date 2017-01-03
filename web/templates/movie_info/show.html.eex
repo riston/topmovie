@@ -1,0 +1,60 @@
+<h2>Show movie info</h2>
+
+<ul>
+
+  <li>
+    <strong>Id:</strong>
+    <%= @movie_info.id %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @movie_info.title %>
+  </li>
+
+  <li>
+    <strong>Overview:</strong>
+    <%= @movie_info.overview %>
+  </li>
+
+  <li>
+    <strong>Adult:</strong>
+    <%= @movie_info.adult %>
+  </li>
+
+  <li>
+    <strong>Video:</strong>
+    <%= @movie_info.video %>
+  </li>
+
+  <li>
+    <strong>Backdrop path:</strong>
+    <%= @movie_info.backdrop_path %>
+  </li>
+
+  <li>
+    <strong>Genres:</strong>
+    <%= @movie_info.genres %>
+  </li>
+
+  <li>
+    <strong>Popularity:</strong>
+    <%= @movie_info.popularity %>
+  </li>
+
+  <li>
+    <strong>Poster path:</strong>
+    <%= @movie_info.poster_path %>
+  </li>
+
+  <li>
+    <strong>Vote average:</strong>
+    <%= @movie_info.vote_average %>
+  </li>
+
+  <li>
+    <strong>Vote count:</strong>
+    <%= @movie_info.vote_count %>
+  </li>
+
+</ul>

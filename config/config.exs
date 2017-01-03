@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :topmovie,
-  ecto_repos: [Topmovie.Repo]
+  ecto_repos: [Topmovie.Repo],
+  tmdb_api_key: System.get_env("TMDB_API_KEY")
 
 # Configures the endpoint
 config :topmovie, Topmovie.Endpoint,

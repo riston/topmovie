@@ -1,0 +1,39 @@
+<h2>Listing movie info</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Overview</th>
+      <th>Adult</th>
+      <th>Video</th>
+      <th>Backdrop path</th>
+      <th>Genres</th>
+      <th>Popularity</th>
+      <th>Poster path</th>
+      <th>Vote average</th>
+      <th>Vote count</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for movie_info <- @movie_info do %>
+    <tr>
+      <td><%= movie_info.id %></td>
+      <td><%= movie_info.title %></td>
+      <td><%= movie_info.overview %></td>
+      <td><%= movie_info.adult %></td>
+      <td><%= movie_info.video %></td>
+      <td><%= movie_info.backdrop_path %></td>
+      <td><%= movie_info.genres %></td>
+      <td><%= movie_info.popularity %></td>
+      <td><%= movie_info.poster_path %></td>
+      <td><%= movie_info.vote_average %></td>
+      <td><%= movie_info.vote_count %></td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>

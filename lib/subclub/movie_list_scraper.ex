@@ -15,8 +15,8 @@ defmodule Subclub.MovieListScraper do
         movie_rows
         |> List.flatten
         |> Enum.map(fn(movie_row) ->
-            Topmovie.Movie.upsert(movie_row)
             Topmovie.Movie.View.insert(movie_row)
+            Topmovie.Movie.upsert(movie_row)
         end)
     end
 end

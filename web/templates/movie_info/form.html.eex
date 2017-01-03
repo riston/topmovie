@@ -1,0 +1,71 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :id, class: "control-label" %>
+    <%= number_input f, :id, class: "form-control" %>
+    <%= error_tag f, :id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :overview, class: "control-label" %>
+    <%= text_input f, :overview, class: "form-control" %>
+    <%= error_tag f, :overview %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :adult, class: "control-label" %>
+    <%= checkbox f, :adult, class: "form-control" %>
+    <%= error_tag f, :adult %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :video, class: "control-label" %>
+    <%= checkbox f, :video, class: "form-control" %>
+    <%= error_tag f, :video %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :backdrop_path, class: "control-label" %>
+    <%= text_input f, :backdrop_path, class: "form-control" %>
+    <%= error_tag f, :backdrop_path %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :popularity, class: "control-label" %>
+    <%= number_input f, :popularity, step: "any", class: "form-control" %>
+    <%= error_tag f, :popularity %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :poster_path, class: "control-label" %>
+    <%= text_input f, :poster_path, class: "form-control" %>
+    <%= error_tag f, :poster_path %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :vote_average, class: "control-label" %>
+    <%= number_input f, :vote_average, step: "any", class: "form-control" %>
+    <%= error_tag f, :vote_average %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :vote_count, class: "control-label" %>
+    <%= number_input f, :vote_count, class: "form-control" %>
+    <%= error_tag f, :vote_count %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

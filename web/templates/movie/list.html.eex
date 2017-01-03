@@ -24,9 +24,12 @@
             author: <%= movie.author %> -
             updated <em><%= format_date(movie.updated_at) %></em>
             and created <em><%= format_date(movie.inserted_at) %></em>
+            <%= if movie.info do %>
+                <p><%= movie.info.overview %></p>
+            <% end %>
         </p>
         <%= if movie.view_count >= 1000 do %>
-        <p>
+        <div class="tp-views">
             <table class="table">
                 <tr>
                     <td class="tp-views-label">Date</td>
@@ -49,7 +52,7 @@
                     <% end %>
                 </tr>
             </table>
-        </p>
+        </div>
         <% end %>
     </div>
 <% end %>

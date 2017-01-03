@@ -9,8 +9,8 @@ defmodule Topmovie.MovieController do
   # end
 
   def list(conn, _params) do
-      movies = Movie.get_movies
-      render(conn, "list.html", movies: movies)
+    movies = Movie.get_movies
+    render(conn, "list.html", movies: movies)
   end
 
   def api_list(conn, _params) do

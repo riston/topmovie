@@ -57,7 +57,7 @@ defmodule Topmovie.MovieView do
   end
 
   def render("movies_views.json", %{view: view}) do
-    {id, view_count, date} = view
+    {view_count, date} = view
     date_str = case Date.from_erl(date) do
         {:ok, dt} -> Date.to_string(dt)
         _ -> "1900-01-01"

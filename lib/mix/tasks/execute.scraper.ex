@@ -12,8 +12,8 @@ defmodule Mix.Tasks.Execute.Scraper do
     {:ok, _started} = Application.ensure_all_started(:httpotion)
 
     IO.puts "Run my custom mix task"
+
     Subclub.MovieListScraper.start()
     |> Subclub.MovieListScraper.insert
   end
-
 end
