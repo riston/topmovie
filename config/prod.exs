@@ -18,6 +18,9 @@ config :topmovie, Topmovie.Endpoint,
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+config :topmovie,
+  tmdb_api_key: System.get_env("TMDB_API_KEY")
+
 # Do not print debug messages in production
 config :logger, level: :info
 
