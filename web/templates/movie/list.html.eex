@@ -1,6 +1,6 @@
 
 <%= for movie <- @movies do %>
-    <div>
+    <div class="tp-movie">
         <div class="row">
             <div class="col-md-8">
                 <a href="<%= movie.imdb_link %>">
@@ -19,40 +19,69 @@
                 </h3>
             </div>
         </div>
-        <p>
-            <a href="http://www.subclub.eu/down.php?id=<%= movie.id %>">Subtitle</a>
-            author: <%= movie.author %> -
-            updated <em><%= format_date(movie.updated_at) %></em>
-            and created <em><%= format_date(movie.inserted_at) %></em>
-            <%= if movie.info do %>
-                <p><%= movie.info.overview %></p>
-            <% end %>
-        </p>
-        <%= if movie.view_count >= 1000 do %>
-        <div class="tp-views">
-            <table class="table">
-                <tr>
-                    <td class="tp-views-label">Date</td>
-                    <%= for {_id, _count, date} <- movie.views do %>
-                        <% {_year, month, day} = date %>
-                        <td><%= day %>/<%= month %></td>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="tp-poster">
+                    <%= if movie.info do %> 
+                        <img class="tp-poster" src="<%= img_full_url("w154", movie.info.poster_path) %>" />
                     <% end %>
-                </tr>
-                <tr>
-                    <td class="tp-views-label">Views</td>
-                    <% first = first_view_count(movie.views) %>
-                    <%= for {_id, count, _date} <- movie.views do %>
-                        <td>
-                        <%= if count == first do %>
-                            <strong><%= count %></strong>
+                    <div class="tp-score" title="dsads">
+                        <%= if movie.info do %>
+                            <p><%= trunc(movie.info.vote_average) %></p>
                         <% else %>
-                            +<%= count - first %>
+                            1
                         <% end %>
-                        </td>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <%= if movie.info do %>
+                    <p><%= movie.info.overview %></p>
+                <% end %>
+
+                <p>
+                    <a href="http://www.subclub.eu/down.php?id=<%= movie.id %>">Subtitle</a>
+                    author: <%= movie.author %> -
+                    updated <em><%= format_date(movie.updated_at) %></em>
+                    and created <em><%= format_date(movie.inserted_at) %></em>
+                </p>
+
+                <%= if movie.info do %>
+                    <p class="tp-genre">
+                    <%= for genre <- movie.info.genres do %>
+                        <span><%= genre %></span>
                     <% end %>
-                </tr>
-            </table>
+                    </p>
+                <% end %>
+
+                <%= if movie.view_count >= 1000 do %>
+                    <div class="tp-views">
+                        <table class="table">
+                            <tr>
+                                <td class="tp-views-label">Date</td>
+                                <%= for {_id, _count, date} <- movie.views do %>
+                                    <% {_year, month, day} = date %>
+                                    <td><%= day %>/<%= month %></td>
+                                <% end %>
+                            </tr>
+                            <tr>
+                                <td class="tp-views-label">Views</td>
+                                <% first = first_view_count(movie.views) %>
+                                <%= for {_id, count, _date} <- movie.views do %>
+                                    <td>
+                                    <%= if count == first do %>
+                                        <strong><%= count %></strong>
+                                    <% else %>
+                                        +<%= count - first %>
+                                    <% end %>
+                                    </td>
+                                <% end %>
+                            </tr>
+                        </table>
+                    </div>
+                <% end %>
+            </div>
         </div>
-        <% end %>
     </div>
 <% end %>

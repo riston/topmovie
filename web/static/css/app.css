@@ -8,6 +8,11 @@
     letter-spacing: 5px;
 }
 
+.tp-movie {
+    position: relative;
+    margin-bottom: 2em;
+}
+
 .tp-views-label {
     font-style: italic;
     font-weight: bolder;
@@ -15,4 +20,42 @@
 
 .tp-views {
     overflow-x: scroll;
+    font-size: 1.5ex;
+}
+
+.tp-views table {
+    margin-bottom: 0.5em;
+}
+
+.tp-poster {
+    width: 100%;
+}
+
+.tp-poster .tp-score {
+    position: absolute;
+    top: -0.5ex;
+    left: 0;
+
+    text-align: center;
+    font-size: 3ex;
+    font-weight: 900;
+    background-color: #FF5722;
+    color: #fff;
+
+    display: block;
+    height: 3ex;
+    width: 3ex;
+    line-height: 3ex;
+    border-radius: 4ex;
+}
+
+.tp-genre {
+    font-size: 1.5ex;
+}
+
+.tp-genre span {
+    background: #184e84;
+    color: #fff;
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
 }

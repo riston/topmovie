@@ -15,7 +15,8 @@ defmodule Mix.Tasks.Execute.MovieInfoScraper do
 
     IO.puts "Run movie info scraper"
 
-    # genres = to_genre_map
+    genres = to_genre_map
+    |> IO.inspect
 
     movies = Topmovie.Movie.get_top_movies
     |> Topmovie.Repo.all
@@ -29,10 +30,19 @@ defmodule Mix.Tasks.Execute.MovieInfoScraper do
 
         # Extract the Movie info object and add id 
         movie_info = get_movie_info(info_response)
+        |> IO.inspect
         |> Map.put(:imdb_id, x.imdb_id)
 
+        # Transform id's to text
+        str_genres_list = 
+            case movie_info.genre_ids do
+                x when is_list(x) -> x
+                _ -> []
+            end
+            |> Enum.map(fn(x) -> genres[x] end)
+        
         movie_info
-        |> Map.put(:genres, ["a", "b"])
+        |> Map.put(:genres, str_genres_list)
         |> Map.put(:movie_id, x.id)
     end)
     |> Enum.filter(fn(movie) -> movie.id != nil end)

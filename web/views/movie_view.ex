@@ -68,4 +68,8 @@ defmodule Topmovie.MovieView do
         created_at: date_str
     }
   end
+
+  def img_full_url(size, file_path) do
+      "https://image.tmdb.org/t/p/#{size}/#{file_path}"
+  end
 end
