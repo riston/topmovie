@@ -22,3 +22,22 @@
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+
+// const imgsEl = Array.from(document.querySelectorAll("img"));
+// console.log("Done", imgsEl);
+
+// imgsEl.forEach(el => {
+//     const { src } = el.dataset;
+
+//     const newImg = document.createElement("img");
+//     newImg.onload = e => {
+//         console.log("Loaded", e.timeStamp);
+//         el.setAttribute("src", src);
+//     };
+
+//     newImg.setAttribute("src", src);
+// });
+
+// imgsEl.forEach(x => x.style.display = "none");
+

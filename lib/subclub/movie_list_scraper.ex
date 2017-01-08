@@ -13,10 +13,12 @@ defmodule Subclub.MovieListScraper do
 
     def insert(movie_rows) do
         movie_rows
+        |> IO.inspect
         |> List.flatten
         |> Enum.map(fn(movie_row) ->
+            movie = Topmovie.Movie.upsert(movie_row)
             Topmovie.Movie.View.insert(movie_row)
-            Topmovie.Movie.upsert(movie_row)
+            movie
         end)
     end
 end
