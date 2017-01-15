@@ -26,7 +26,7 @@ defmodule Topmovie.Movie do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :year, :fps, :score, :author, :imdb_link, :view_count])
+    |> cast(params, [:title, :year, :fps, :score, :author, :imdb_link, :view_count, :inserted_at, :updated_at])
     |> validate_required([:title, :year, :fps, :score, :author, :imdb_link, :view_count])
   end
 

@@ -105,7 +105,7 @@ defmodule Subclub.MovieListParser do
         |> Enum.at(0)
         |> Floki.text
             |> String.split("\n")
-            |> Enum.at(0)
+            |> Enum.at(1)
             |> default_date
     end
 
@@ -115,7 +115,7 @@ defmodule Subclub.MovieListParser do
         |> Enum.at(0)
         |> Floki.text
             |> String.split("\n")
-            |> Enum.at(1)
+            |> Enum.at(0)
             |> default_date
     end
 

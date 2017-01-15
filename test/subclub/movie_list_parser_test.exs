@@ -22,8 +22,8 @@ defmodule MovieListParserTest do
     assert first.author === "Odddude"
     assert first.view_count === 462
     assert first.imdb_link === "http://us.imdb.com/title/tt2660888"
-    assert first.created_at === ~D[2016-11-10]
-    assert first.modified_at === ~D[2016-11-10]
+    assert first.inserted_at === ~D[2016-11-06]
+    assert first.updated_at === ~D[2016-11-10]
   end
 
   test "year parsing" do

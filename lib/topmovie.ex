@@ -12,7 +12,7 @@ defmodule Topmovie do
       supervisor(Topmovie.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Topmovie.Endpoint, []),
-      worker(Subclub.Worker, []),
+      # worker(Subclub.Worker, []),
       # Start your own worker by calling: Topmovie.Worker.start_link(arg1, arg2, arg3)
     #   worker(Topmovie.Worker, [arg1, arg2, arg3]),
     ]
