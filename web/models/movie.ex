@@ -33,6 +33,10 @@ defmodule Topmovie.Movie do
   #qq
   # Topmovie.Movie.upsert(12, %{title: "A", fps: 23.0, year: 2016, score: 5.0, view_count: 100, author: "Muki" })
   def upsert(params \\ %{}) do
+
+    params = %{ params | :inserted_at => to_ecto_datetime(params.inserted_at) }
+    params = %{ params | :updated_at => to_ecto_datetime(params.updated_at) }
+
     case Topmovie.Repo.get(Topmovie.Movie, params.id) do
         nil -> %Topmovie.Movie{id: params.id}
         movie -> movie
@@ -56,5 +60,11 @@ defmodule Topmovie.Movie do
     from(m in Topmovie.Movie,
         order_by: [asc: m.inserted_at, desc: m.view_count],
         limit: @top_movie_count)
+  end
+
+  defp to_ecto_datetime(date) do
+    date
+      |> Ecto.Date.cast!
+      |> Ecto.DateTime.from_date
   end
 end
