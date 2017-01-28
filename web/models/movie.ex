@@ -58,7 +58,9 @@ defmodule Topmovie.Movie do
 
   def get_top_movies do
     from(m in Topmovie.Movie,
-        order_by: [asc: m.inserted_at, desc: m.view_count],
+        where: (m.inserted_at > ago(1, "month")) 
+          or (m.updated_at > ago(1, "month")),
+        order_by: [desc: m.view_count],
         limit: @top_movie_count)
   end
 
